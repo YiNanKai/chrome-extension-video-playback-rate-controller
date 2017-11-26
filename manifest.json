@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Video playback rate controller",
+  "description": "This extension control the rate of iqiyi or youku video playback",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://www.iqiyi.com/*",
+        "https://www.iqiyi.com/*",
+        "http://v.youku.com/*",
+        "https://v.youku.com/*"
+      ],
+      "js": [
+        "jquery.min.js",
+        "content.js"
+      ],
+      "css":[
+        "style.css"
+      ]
+    }
+  ]
+}
