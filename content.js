@@ -43,6 +43,17 @@ upBtn.addEventListener("click", function () {
     updateRate();
 })
 
+var fullScreenBtn = document.createElement("BUTTON");
+fullScreenBtn.appendChild(document.createTextNode("[ ]"));
+fullScreenBtn.addEventListener("click", function () {
+    if(document.webkitIsFullScreen){
+        document.webkitExitFullscreen();
+    }else{
+        $video.parentElement.webkitRequestFullScreen();
+    }
+})
+
+
 function updateRate() {
     rateBtn.innerHTML = $video.playbackRate;
 }
@@ -50,6 +61,7 @@ function updateRate() {
 container.appendChild(downBtn);
 container.appendChild(rateBtn);
 container.appendChild(upBtn);
+container.appendChild(fullScreenBtn);
 
 function youkuVideoElementInserted(e) {
     console.log(e.target.nodeName);
